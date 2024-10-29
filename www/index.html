@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name = "format-detection" content = "telephone=no"/>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+        <!-- link rel="stylesheet" type="text/css" href="css/index.css" / -->
+        <title>MobileForms</title>
+        <!-- Module to load
+        -->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="cordova_webapp.js"></script>
+        <script type="text/javascript" src="lib/jquery/jquery-2.1.0.min.js"></script>
+        <script type="text/javascript" src="lib/underscore-1.6.0/underscore-min.js"></script>
+        <script type="text/javascript" src="lib/backbone-1.1.2/backbone.js"></script>
+        <link rel="stylesheet" href="lib/jquery/jquery.mobile-1.4.2.min.css"></link>
+        <script type="text/javascript" src="lib/jquery/jquery.mobile-1.4.2.min.js"></script>
+        <link rel="stylesheet" href="css/index.css"></link>
+    </head>
+    <body>
+        <!-- Application pages -->
+        <div id="page-home" class="page" data-role="page">
+            <div data-role="header" data-add-back-btn="true"><h1>MobileForms</h1></div>            <h1>MobileForms</h1>
+            <div data-role="content">
+                <ul id="menu" data-role="listview" data-inset="true">
+                    <li><a href="#page-new-form" data-transition='slide'>New Form</a></li>
+                    <li><a href="#page-saved-forms" data-transition='slide'>Saved Forms</a></li>
+                    <li><a href="#page-load-form" data-transition='slide'>Load Forms</a></li>
+                    <li><a href="#page-settings" data-transition='slide'>Settings</a></li>
+                </ul>
+            </div>
+            <div data-role="footer"  data-position="fixed"><h4></h4></div>
+        </div>
+        
+        <div id="page-new-form" class="page" data-role="page">
+            <div data-role="header" data-add-back-btn="true"><h1>New Form</h1></div>
+            <div data-role="content">
+                <ul id="form-items" data-role="listview" data-inset="true"></ul>
+            </div>
+            <div data-role="footer"  data-position="fixed"><h4></h4></div>
+        </div>
+        
+        <div id="page-saved-forms" class="page" data-role="page">
+            <div data-role="header" data-add-back-btn="true"><h1>Saved Forms</h1></div>
+            <div data-role="content">
+                <ul id="form-saved-list" data-role="listview" data-inset="true"></ul>                
+            </div>
+            <div data-role="footer"  data-position="fixed"><h4></h4></div>
+        </div>
+        
+        <div id="page-load-form" class="page" data-role="page">
+            <div data-role="header" data-add-back-btn="true"><h1>Load Forms</h1></div>
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                <fieldset id="form-list-data" data-role="controlgroup">
+                </fieldset>
+                <!-- ul id="form-list-data" data-role="listview" data-inset="true"></ul -->
+                <input id="load-form-button" type="button" value="Load" data-inline="true">
+                </div>
+            </div>
+            <div data-role="footer"  data-position="fixed"><h4></h4></div>
+        </div>
+        
+        <div id="page-settings" class="page" data-role="page">
+            <div data-role="header" data-add-back-btn="true"><h1>Settings</h1></div>
+            <div id="content-settings" data-role="content">
+                <div id="version"></div>
+                <div class="ui-field-contain">
+                    <fieldset name="form-source" data-role="controlgroup">
+                      <legend>Select form source</legend>
+                      <label><input type="radio" name="form-source" id="checkbox-1" class="custom" data-mini="true" checked="checked">
+                            Local</label>
+                      <label><input type="radio" name="form-source" id="checkbox-2" class="custom" data-mini="true">
+                            Remote</label>
+                    </fieldset>
+                </div>
+                <div id="server-info">
+                    <hr>
+                    <!-- todo put a dropdown of known servers here -->
+                    URL: <input id="serverURL" type="text"/>
+                    User: <input id="username" type="text"/>
+                    Password: <input id="password" type="password"/>
+                    <hr>
+                </div>
+                <input id="load-form-list-button" type="button" value="Load" data-inline="true">
+                <input id="reset-button" type="button" value="Reset" data-inline="true">
+                <!-- input id="debug-button" type="button" value="debug" data-inline="true" style="display: inline;" -->
+                <div id="content-messages"></div>
+            </div>
+            <div data-role="footer" data-position="fixed"><h4></h4></div>
+        </div>
+        
+        <div id="reset-dialog"  class="popup" data-role="popup" data-theme="a"  data-overlay-theme="a" data-dismissible="false" style="max-width:400px;" class="ui-corner-all">
+            <div data-role="header"><h3>Reset all saved forms?</h3></div>
+            <div id="content" data-role="content">
+                <h3>
+                    Are you sure that you want to delete all forms and data?
+                </h3>
+                <input id="cancel"  data-role="button" type="button" value="cancel" data-inline="true" data-theme="a">
+                <input id="ok"  data-role="button" type="button" value="ok" data-inline="true" data-theme="b">
+           </div>
+        </div>
+        <div id="confirm-dialog"  class="popup" data-role="popup" data-theme="a"  data-overlay-theme="a" data-dismissible="false" style="max-width:400px;" class="ui-corner-all">
+            <div data-role="header"><h3>Notice</h3></div>
+            <div id="content" data-role="content">
+                <h3>
+                    Empty Notice
+                </h3>
+                <input id="ok"  data-role="button" type="button" value="ok" data-inline="true" data-theme="b">
+           </div>
+        </div>
+        
+        <script type="text/javascript" src="js/models.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/xformer.js"></script>
+        <script type="text/javascript" src="js/mFormData.js"></script>
+        <script type="text/javascript" src="js/uiElements.js"></script>
+        <script type="text/javascript" src="js/jqm-view.js"></script>
+        <script type="text/javascript" src="js/jqm-controller.js"></script>
+        <script type="text/javascript" src="js/sync.js"></script>
+        <script type="text/javascript" src="js/storage.js"></script>
+        <script type="text/javascript" src="config.js"></script>
+        <script type="text/javascript">
+            window.onload = function() {
+            app.initialize();
+            }
+        </script>
+    </body>
+</html>
