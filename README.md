@@ -3,8 +3,7 @@ MobileForms
 
 Prototype for forms management
 
-The demo can be found here: http://tombaker1.github.io/MobileForms/
-
+The demo can be found here: [MobileForms](http://tombaker1.github.io/MobileForms/)
 To run the demo do the following:<br>
 1. Select 'Settings'<br>
 2. Click the 'Load' button<br>
