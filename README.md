@@ -20,4 +20,5 @@ To run the demo do the following:<br>
 12. A saved form can be edited from the Saved Forms page
 
 * Canvas example
-http://tombaker1.github.io/MobileForms/examples/canvas.html
+[Canvas](http://tombaker1.github.io/MobileForms/examples/canvas.html)
+
