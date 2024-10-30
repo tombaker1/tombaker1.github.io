@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .canvas-container {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid black;
+            width: 400px;
+            height: 300px;
+        }
+
+        canvas {
+            background: white;
+        }
+
+        #controls {
+            margin: 10px 0;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        select,
+        button {
+            padding: 5px;
+        }
+
+        .zoom-controls {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="controls"> <button onclick="addLetter()">Add Random Letter</button> <button onclick="clearCanvas()">Clear
+            Canvas</button> <select id="fontSelect" onchange="updateFont()">
+            <option value="Arial">Arial</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Impact">Impact</option>
+        </select> <select id="animationSelect">
+            <option value="none">No Animation</option>
+            <option value="rotate">Rotate</option>
+            <option value="bounce">Bounce</option>
+            <option value="fade">Fade</option>
+        </select>
+        <div class="zoom-controls"> <label for="zoomSlider">Zoom:</label> <input type="range" id="zoomSlider" min="0.1"
+                max="5" step="0.1" value="1"> <span id="zoomLevel">100%</span> <button onclick="resetZoom()">Reset
+                Zoom</button> </div>
+    </div>
+    <div class="canvas-container"> <canvas id="letterCanvas" width="400" height="300"></canvas> </div>
+    <script> const canvas = document.getElementById('letterCanvas'); const ctx = canvas.getContext('2d'); let letters = []; let animationId; // Zoom and pan variables let scale = 1; let offsetX = 0; let offsetY = 0; let isDragging = false; let lastX = 0; let lastY = 0; class Letter { constructor() { this.letter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'[Math.floor(Math.random() * 26)]; this.x = random(30, canvas.width - 30); this.y = random(30, canvas.height - 30); this.fontSize = random(20, 40); this.hue = random(0, 360); this.opacity = 1; this.rotation = 0; this.yVelocity = random(-2, 2); this.originalY = this.y; } draw() { ctx.save(); const animationType = document.getElementById('animationSelect').value; // Apply zoom and pan transformation ctx.translate(offsetX, offsetY); ctx.scale(scale, scale); ctx.translate(this.x, this.y); if (animationType === 'rotate') { ctx.rotate(this.rotation); } ctx.font = `${this.fontSize}px ${document.getElementById('fontSelect').value}`; ctx.fillStyle = `hsla(${this.hue}, 70%, 50%, ${this.opacity})`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(this.letter, 0, 0); ctx.restore(); } update() { const animationType = document.getElementById('animationSelect').value; switch (animationType) { case 'rotate': this.rotation += 0.02; break; case 'bounce': this.y += this.yVelocity; if (Math.abs(this.y - this.originalY) > 20) { this.yVelocity *= -1; } break; case 'fade': this.opacity = 0.5 + Math.sin(Date.now() / 1000) * 0.5; break; } } } function random(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; } function addLetter() { letters.push(new Letter()); } function clearCanvas() { letters = []; ctx.clearRect(0, 0, canvas.width, canvas.height); } function updateFont() { animate(); } function animate() { if (animationId) { cancelAnimationFrame(animationId); } ctx.clearRect(0, 0, canvas.width, canvas.height); letters.forEach(letter => { letter.update(); letter.draw(); }); if (letters.length > 0 && document.getElementById('animationSelect').value !== 'none') { animationId = requestAnimationFrame(animate); } } // Zoom control with mouse wheel canvas.addEventListener('wheel', (e) => { e.preventDefault(); const delta = e.deltaY > 0 ? 0.9 : 1.1; const mouseX = e.offsetX; const mouseY = e.offsetY; // Zoom around mouse position const newScale = scale * delta; if (newScale >= 0.1 && newScale <= 5) { offsetX = mouseX - (mouseX - offsetX) * delta; offsetY = mouseY - (mouseY - offsetY) * delta; scale = newScale; // Update zoom slider document.getElementById('zoomSlider').value = scale; updateZoomLevel(); animate(); } }); // Pan control with mouse drag canvas.addEventListener('mousedown', (e) => { isDragging = true; lastX = e.offsetX; lastY = e.offsetY; }); canvas.addEventListener('mousemove', (e) => { if (isDragging) { const deltaX = e.offsetX - lastX; const deltaY = e.offsetY - lastY; offsetX += deltaX; offsetY += deltaY; lastX = e.offsetX; lastY = e.offsetY; animate(); } }); canvas.addEventListener('mouseup', () => { isDragging = false; }); canvas.addEventListener('mouseleave', () => { isDragging = false; }); // Zoom slider control const zoomSlider = document.getElementById('zoomSlider'); zoomSlider.addEventListener('input', () => { scale = parseFloat(zoomSlider.value); updateZoomLevel(); animate(); }); function updateZoomLevel() { document.getElementById('zoomLevel').textContent = `${Math.round(scale * 100)}%`; } function resetZoom() { scale = 1; offsetX = 0; offsetY = 0; zoomSlider.value = 1; updateZoomLevel(); animate(); } document.getElementById('animationSelect').addEventListener('change', animate); // Add initial letters for (let i = 0; i < 5; i++) { addLetter(); } animate(); </script>
+</body>
+
+</html>

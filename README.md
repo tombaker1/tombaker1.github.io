@@ -18,3 +18,6 @@ To run the demo do the following:<br>
 10. Fill in the form, select 'Save' or 'Submit'<br>
 11. Note that the demo can not 'Submit' a form because of cross site scripting restrictions.  Failed submissions are automatically saved.<br>
 12. A saved form can be edited from the Saved Forms page
+
+* Canvas example
+http://tombaker1.github.io/MobileForms/examples/canvas.html
