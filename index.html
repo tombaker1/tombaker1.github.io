@@ -59,7 +59,9 @@
     </div>
     <div class="canvas-container"> <canvas id="letterCanvas" width="400" height="300"></canvas> </div>
     <div>Canvas</div>
-    <script> const canvas = document.getElementById('letterCanvas'); 
+    <script type="text/javascript" src="app.js"></script>
+    <script> 
+        const canvas = document.getElementById('letterCanvas'); 
         const ctx = canvas.getContext('2d'); 
         let letters = []; 
         let animationId; // Zoom and pan variables 
