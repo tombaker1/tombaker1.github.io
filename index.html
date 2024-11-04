@@ -186,6 +186,16 @@
                 animationId = requestAnimationFrame(animate); 
             } 
         } 
+        function updateFrame() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); 
+            letters.forEach(letter => { letter.update(); letter.draw(); }); 
+
+            }
+        function move(x,y) {
+            this.x += x * 20;
+            this.y += y * 20;
+            updateFrame();
+            }
         
         // Zoom control with mouse wheel 
         canvas.addEventListener('wheel', (e) => 
