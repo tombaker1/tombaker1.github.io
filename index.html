@@ -155,6 +155,14 @@
                 } 
             } 
         } 
+        class Person extends Letter {
+            constructor() {
+                super();
+                this.letter='Y';
+                this.x = canvas.width/2;
+                this.y = canvas.height/2;
+                }
+            }
         function random(min, max) { 
             return Math.floor(Math.random() * (max - min + 1)) + min; 
         } 
@@ -220,7 +228,8 @@
         document.getElementById('animationSelect').addEventListener('change', animate); // Add initial letters 
         for (let i = 0; i < 5; i++) { 
             addLetter(); 
-        } 
+        }
+        letters.push(new Person);
         animate(); 
     </script>
 </body>
