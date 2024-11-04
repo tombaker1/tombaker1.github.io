@@ -122,7 +122,7 @@
                 this.y = random(30, canvas.height - 30); 
                 this.fontSize = 20 //random(20, 40); 
                 this.hue = 0 //random(0, 360); 
-                this.lightness = 0.50;
+                this.lightness = 50;
                 this.opacity = 1; 
                 this.rotation = 0; 
                 this.yVelocity = random(-2, 2); 
@@ -138,7 +138,7 @@
                     ctx.rotate(this.rotation); 
                 } 
                 ctx.font = `${this.fontSize}px ${document.getElementById('fontSelect').value}`; 
-                ctx.fillStyle = `hsla(${this.hue}, 70%, ${this.lightness}, ${this.opacity})`; 
+                ctx.fillStyle = `hsla(${this.hue}, 70%, ${this.lightness}%, ${this.opacity})`; 
                 ctx.textAlign = 'center'; 
                 ctx.textBaseline = 'middle'; 
                 ctx.fillText(this.letter, 0, 0); 
