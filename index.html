@@ -169,11 +169,22 @@
                 this.y = canvas.height/2;
                 }
             }
+        class Zombie extends Letter {
+            constructor() {
+                super();
+                this.letter='Z';
+                this.lightness = 50;
+                this.x = random(0, canvas.width/20) * 20;
+                this.y = random(0, canvas.height/20) * 20;
+                //this.x = canvas.width/2;
+                //this.y = canvas.height/2;
+                }
+            }
         function random(min, max) { 
             return Math.floor(Math.random() * (max - min + 1)) + min; 
         } 
         function addLetter() { 
-            letters.push(new Letter()); 
+            letters.push(new Zombie()); 
         } 
         function clearCanvas() { 
             letters = []; 
