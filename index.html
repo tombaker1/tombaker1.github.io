@@ -154,6 +154,10 @@
                     case 'fade': this.opacity = 0.5 + Math.sin(Date.now() / 1000) * 0.5; break; 
                 } 
             } 
+            move(x,y) {
+                this.x += x;
+                this.y += y;
+                }
         } 
         class Person extends Letter {
             constructor() {
@@ -192,8 +196,8 @@
 
             }
         function move(x,y) {
-            this.x += x * 20;
-            this.y += y * 20;
+            
+            person.move(x,y);
             updateFrame();
             }
         
@@ -239,7 +243,8 @@
         for (let i = 0; i < 5; i++) { 
             addLetter(); 
         }
-        letters.push(new Person);
+        person = new Person;
+        letters.push(person);
         animate(); 
     </script>
 </body>
