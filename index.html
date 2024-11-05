@@ -159,6 +159,7 @@
                 this.x += x * 20;
                 this.y += y * 20;
                 }
+            chase() {}
         } 
         class Person extends Letter {
             constructor() {
@@ -179,13 +180,13 @@
                 //this.x = canvas.width/2;
                 //this.y = canvas.height/2;
                 }
-                /*
-            update() {
+                
+            chase() {
                 dx = (person.x - this.x)/20;
                 dy = (person.y - this.y)/20;
                 move(Math.sign(dx),Math.sign(dy));
             }
-            */
+            
             }
         function random(min, max) { 
             return Math.floor(Math.random() * (max - min + 1)) + min; 
@@ -218,6 +219,7 @@
         function move(x,y) {
             
             person.move(x,y);
+            letters.forEach(letter => {letter.chase();});
             updateFrame();
             }
         
