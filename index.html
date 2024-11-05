@@ -106,6 +106,8 @@
     <script type="text/javascript" src="app.js"></script>
     -->
     <script> 
+    //document.getElementById("").textContent = "New Text";
+
         const canvas = document.getElementById('letterCanvas'); 
         const ctx = canvas.getContext('2d'); 
         let letters = []; 
@@ -192,7 +194,8 @@
             
             }
         printStatus(m) {
-            
+            document.getElementById("status").textContent = m;
+
         }
         function random(min, max) { 
             return Math.floor(Math.random() * (max - min + 1)) + min; 
@@ -274,6 +277,7 @@
         person = new Person;
         letters.push(person);
         animate(); 
+        printStatus("done");
     </script>
 </body>
 
