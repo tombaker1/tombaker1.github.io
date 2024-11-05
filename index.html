@@ -164,7 +164,7 @@
                 this.y += y * 20;
                 statusMessage.innerHTML += `<br>${this.letter} x= ${this.x},y= ${this.y}, ${x}, ${y}`;
                 }
-            chase() {}
+            chase(x,y) {}
         } 
         class Person extends Letter {
             constructor() {
@@ -186,10 +186,10 @@
                 //this.y = canvas.height/2;
                 }
                 
-            chase() {
+            chase(x,y) {
                 //statusMessage.innerHTML += "<br>chase ";
-                dx = (person.x - this.x)/20;
-                dy = (person.y - this.y)/20;
+                dx = (x - this.x)/20;
+                dy = (y - this.y)/20;
                 statusMessage.innerHTML = "chase " + ${dx} + " " + ${dy};
                 //move(Math.sign(dx),Math.sign(dy));
                 
@@ -233,7 +233,7 @@
         function move(x,y) {
             
             person.move(x,y);
-            letters.forEach(letter => {letter.chase();});
+            letters.forEach(letter => {letter.chase(person.x,person.y);});
             updateFrame();
             }
         
