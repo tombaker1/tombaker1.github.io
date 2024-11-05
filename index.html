@@ -187,7 +187,7 @@
                 }
                 
             chase(x,y) {
-                //statusMessage.innerHTML += "<br>chase " + x + " "+ y;
+                statusMessage.innerHTML += "<br>chase " + this.x + " "+ this.y;
                 dx = (x - this.x)/20;
                 dy = (y - this.y)/20;
                 statusMessage.innerHTML = "chase " + dx + " " + dy + " " + this.x  + " " + this.y;
