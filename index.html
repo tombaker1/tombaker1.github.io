@@ -182,6 +182,7 @@
             update() {
                 dx = (person.x - this.x)/20;
                 dy = (person.y - this.y)/20;
+                /*
                 if ((dx != 0) && (dy != 0)) {
                     move(Math.sign(dx),Math.sign(dy));
                     return;
@@ -190,7 +191,9 @@
                     move(Math.sign(dx),0));
                     return;
                 }
-                move(0, Math.sign(dy));
+                */
+                move(Math.sign(dx),Math.sign(dy));
+            }
             }
         function random(min, max) { 
             return Math.floor(Math.random() * (max - min + 1)) + min; 
