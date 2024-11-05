@@ -101,7 +101,7 @@
 <br>
 
     </div>
-    <div id="status">Ready</div>
+    <div id="statusMessage">Ready</div>
     <!--
     <script type="text/javascript" src="app.js"></script>
     -->
@@ -110,7 +110,7 @@
 
         const canvas = document.getElementById('letterCanvas'); 
         const ctx = canvas.getContext('2d'); 
-        const statusMessage = document.getElementById("status");
+        const statusMessage = document.getElementById("statusMessage");
         let letters = []; 
         let animationId; // Zoom and pan variables 
         let scale = 1; 
@@ -281,7 +281,7 @@
         letters.push(person);
         animate(); 
         //printStatus("done");
-//document.getElementById("status").innerHTML = "test";
+document.getElementById("statusMessage").innerHTML = "test";
     </script>
 </body>
 
