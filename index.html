@@ -162,6 +162,7 @@
             move(x,y) {
                 this.x += x * 20;
                 this.y += y * 20;
+                statusMessage.innerHTML = '${this.letter}/t x= ${this.x},y= ${this.y}, ${x}, ${y}/n';
                 }
             chase() {}
         } 
@@ -280,8 +281,8 @@
         person = new Person;
         letters.push(person);
         animate(); 
-        //printStatus("done");
-document.getElementById("statusMessage").innerHTML = "test";
+        //
+        statusMessage.innerHTML = "test";
     </script>
 </body>
 
