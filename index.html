@@ -110,6 +110,7 @@
 
         const canvas = document.getElementById('letterCanvas'); 
         const ctx = canvas.getContext('2d'); 
+        const statusMessage = document.getElementById("status");
         let letters = []; 
         let animationId; // Zoom and pan variables 
         let scale = 1; 
@@ -277,7 +278,8 @@
         person = new Person;
         letters.push(person);
         animate(); 
-        printStatus("done");
+        //printStatus("done");
+document.getElementById("status").innerHTML = "test";
     </script>
 </body>
 
