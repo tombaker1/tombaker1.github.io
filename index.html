@@ -201,16 +201,18 @@
                 //statusMessage.innerHTML += "<br> " + sx + " " + sy;
                 //statusMessage.innerHTML = "chase " + ${dx} + " " + ${dy};
                 let found = 0;
-                if (zombies.length == 0) {
-                    found = 1;
-                }
+                //if (zombies.length == 0) {
+                    //found = 1;
+                //}
                 zombies.forEach(z => {
                     
                     
-                    if ((z.x != newX)&&(z.y != newY)) {
+                    if ((z.x == newX)&&(z.y == newY)) {
                         found = 1;
+                        break;
                         //statusMessage.innerHTML += " found";
                         }
+                        /*
                     else if ((z.x != newX) && (z.y != this.y)){
                         found = 1;
                         newY = this.y;
@@ -219,10 +221,11 @@
                         found = 1;
                         newX = this.x;
                         }
+                     */
                         statusMessage.innerHTML += "<br> " + z.x + " " + z.y + " " + this.x + " " + this.y + " found " + found;
                     });
 
-                if (found == 1) {
+                if (found == 0) {
                     this.move(sx,sy);
                 }
                 zombies.push(this);
