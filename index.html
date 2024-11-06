@@ -134,8 +134,12 @@
                 this.rotation = 0; 
                 this.yVelocity = random(-2, 2); 
                 this.originalY = this.y;
+                this.dead = 0;
             } 
-            draw() { 
+            draw() {
+                if (this.dead) {
+                    return;
+                }
                 ctx.save(); 
                 const animationType = document.getElementById('animationSelect').value; // Apply zoom and pan transformation 
                 ctx.translate(offsetX, offsetY); 
@@ -189,6 +193,12 @@
                 this.x = random(0, canvas.width/20-1);
                 this.y = random(0, canvas.height/20-1);
                 this.space = 5;
+                }
+                fill() {
+                    this.space--;
+                    if (this.space <= 0) {
+                        this.dead = 1;
+                    }
                 }
             }
         class Zombie extends Letter {
