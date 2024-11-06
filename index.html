@@ -196,18 +196,28 @@
                 //statusMessage.innerHTML += "<br>chase " + dx + " " + dy + " " + this.x  + " " + this.y;
                 let sx = Math.sign(dx);
                 let sy = Math.sign(dy);
+                let newX = this.x + sx;
+                let newY = this.y + sy;
                 //statusMessage.innerHTML += "<br> " + sx + " " + sy;
                 //statusMessage.innerHTML = "chase " + ${dx} + " " + ${dy};
                 let found = 0;
                 
                 zombies.forEach(z => {
-                    statusMessage.innerHTML += "<br> " + z.x + " " + z.y + " " + this.x + " " + this.y;
                     
-                    if ((z.x == this.x + sx)&&(z.y == this.y + sy)) {
+                    
+                    if ((z.x != newX)&&(z.y != newY)) {
                         found = 1;
                         statusMessage.innerHTML += " found";
                         }
-
+                    else if ((z.x != newX) && (z.y != this.y)){
+                        found = 1;
+                        newY = this.y;
+                    }
+                    else if ((z.x != this.x) && (z.y != newY)) {
+                        found = 1;
+                        newX = this.x;
+                        }
+                        statusMessage.innerHTML += "<br> " + z.x + " " + z.y + " " + this.x + " " + this.y + " found " + found;
                     });
 
                 if (found == 0) {
