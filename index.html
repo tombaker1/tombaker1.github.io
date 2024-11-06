@@ -196,8 +196,8 @@
                 //statusMessage.innerHTML += "<br>chase " + dx + " " + dy + " " + this.x  + " " + this.y;
                 let sx = Math.sign(dx);
                 let sy = Math.sign(dy);
-                //statusMessage.innerHTML += "<br> " + sx + " " + sy;
-                //statusMessage.innerHTML = "chase " + ${dx} + " " + ${dy};
+                statusMessage.innerHTML += "<br> " + sx + " " + sy;
+                statusMessage.innerHTML = "chase " + ${dx} + " " + ${dy};
                 let found = 0;
                 zombies.foreach(z => {
                     statusMessage.innerHTML = z.x + " " z.y + " " + this.x " " + this.y;
