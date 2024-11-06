@@ -284,14 +284,14 @@
             let numHoles = Math.ceil(numZombies/5);
             holes=[];
             letters = [];
-            for (let i = 0; i < 5; i++) { 
+            for (let i = 0; i < numZombies; i++) { 
                 addLetter(); 
             }
             person = new Person;
             letters.push(person);
             animate(); 
             //
-            statusMessage.innerHTML = "New Game!";
+            statusMessage.innerHTML = "New Game! " + numZombies + " " + numHoles;
         }
         
         // Zoom control with mouse wheel 
