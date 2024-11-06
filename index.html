@@ -112,6 +112,7 @@
         const ctx = canvas.getContext('2d'); 
         const statusMessage = document.getElementById("statusMessage");
         let letters = []; 
+        let zombies = [];
         let animationId; // Zoom and pan variables 
         let scale = 1; 
         let offsetX = 0; 
@@ -197,7 +198,16 @@
                 let sy = Math.sign(dy);
                 //statusMessage.innerHTML += "<br> " + sx + " " + sy;
                 //statusMessage.innerHTML = "chase " + ${dx} + " " + ${dy};
-                this.move(Math.sign(dx),Math.sign(dy));
+                let found = 0;
+                zombies.foreach(z => {
+                    if ((z.x == this.x + sx)&&(z.y == this.y + sy)) {
+                        found = 1;
+                        }
+                    });
+                if (!found) {
+                    this.move(sx,sy);
+                }
+                zombies.push(this);
                 
             }
             
