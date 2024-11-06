@@ -190,7 +190,7 @@
                 //statusMessage.innerHTML += "<br>chase " + this.x + " "+ this.y;
                 const dx = (x - this.x)/20;
                 const dy = (y - this.y)/20;
-                statusMessage.innerHTML = "<br>chase " + dx + " " + dy + " " + this.x  + " " + this.y;
+                statusMessage.innerHTML += "<br>chase " + dx + " " + dy + " " + this.x  + " " + this.y;
                 //statusMessage.innerHTML = "chase " + ${dx} + " " + ${dy};
                 move(Math.sign(dx),Math.sign(dy));
                 
