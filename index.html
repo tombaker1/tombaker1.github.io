@@ -137,8 +137,8 @@
                 const animationType = document.getElementById('animationSelect').value; // Apply zoom and pan transformation 
                 ctx.translate(offsetX, offsetY); 
                 ctx.scale(scale, scale); 
-                px = (this.x * 20) + 10;
-                py = (this.y * 20) + 10;
+                let px = (this.x * 20) + 10;
+                let py = (this.y * 20) + 10;
                 ctx.translate(px,py); 
                 if (animationType === 'rotate') { 
                     ctx.rotate(this.rotation); 
