@@ -281,7 +281,7 @@
             }
         function newGame() {
             let numZombies = random(5,10);
-            //let numHoles = Math.ceiling(numZombies/5);
+            let numHoles = Math.ceil(numZombies/5);
             holes=[];
             letters = [];
             for (let i = 0; i < 5; i++) { 
