@@ -190,7 +190,7 @@
                 }
                 
             chase(x,y) {
-                statusMessage.innerHTML += "<br>chase " + this.x + " "+ this.y;
+                //statusMessage.innerHTML += "<br>chase " + this.x + " "+ this.y;
                 const dx = Math.floor(x - this.x);
                 const dy = Math.floor(y - this.y);
                 //statusMessage.innerHTML += "<br>chase " + dx + " " + dy + " " + this.x  + " " + this.y;
@@ -201,12 +201,13 @@
                 let found = 0;
                 
                 zombies.forEach(z => {
-                    statusMessage.innerHTML += "<br> z"; // + z.x + " " + z.y + " " + this.x + " " + this.y;
-                    /*
+                    statusMessage.innerHTML += "<br> " + z.x + " " + z.y + " " + this.x + " " + this.y;
+                    
                     if ((z.x == this.x + sx)&&(z.y == this.y + sy)) {
                         found = 1;
+                        statusMessage.innerHTML += " found";
                         }
-*/
+
                     });
 
                 if (found == 0) {
