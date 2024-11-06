@@ -55,7 +55,8 @@
 </head>
 
 <body>
-    <div id="controls"> <button onclick="addLetter()">Add Random Letter</button> <button onclick="clearCanvas()">Clear
+    <div id="controls"> <button onclick="newGame()">New Game</button> 
+            <button onclick="clearCanvas()">Clear
             Canvas</button> <select id="fontSelect" onchange="updateFont()">
             <option value="Arial">Arial</option>
             <option value="Times New Roman">Times New Roman</option>
@@ -290,7 +291,7 @@
             letters.push(person);
             animate(); 
             //
-            statusMessage.innerHTML = "test";
+            statusMessage.innerHTML = "New Game!";
         }
         
         // Zoom control with mouse wheel 
