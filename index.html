@@ -75,7 +75,7 @@
             <button onclick="resetZoom()">Reset Zoom</button> 
         </div>
     </div>
-    <div class="canvas-container"> <canvas id="letterCanvas" width="400" height="300"></canvas> </div>
+    <div class="canvas-container"> <canvas id="letterCanvas" width="400" height="320"></canvas> </div>
     <div>
         <!--
          <button>up</button>
@@ -191,6 +191,9 @@
                 const dx = Math.floor((x - this.x)/20);
                 const dy = Math.floor((y - this.y)/20);
                 statusMessage.innerHTML += "<br>chase " + dx + " " + dy + " " + this.x  + " " + this.y;
+                let sx = Math.sign(dx);
+                let sy = Math.sign(dy);
+                statusMessage.innerHTML += "<br> " + sx + " " + sy;
                 //statusMessage.innerHTML = "chase " + ${dx} + " " + ${dy};
                 //move(Math.sign(dx),Math.sign(dy));
                 
