@@ -237,9 +237,10 @@
 
             }
         function move(x,y) {
-            
+            let prevX = person.x;
+            let prevY = person.y;
             person.move(x,y);
-            letters.forEach(letter => {letter.chase(person.x,person.y);});
+            letters.forEach(letter => {letter.chase(prevX, prevY);});
             updateFrame();
             }
         
