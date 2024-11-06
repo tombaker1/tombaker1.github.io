@@ -180,6 +180,17 @@
                 this.y = canvas.height/2/20;
                 }
             }
+        class Hole extends Letter {
+            constructor() {
+                super();
+                this.letter='0';
+                this.hue = 240;
+                this.lightness = 50;
+                this.x = canvas.width/2/20;
+                this.y = canvas.height/2/20;
+                this.space = 5;
+                }
+            }
         class Zombie extends Letter {
             constructor() {
                 super();
@@ -284,6 +295,11 @@
             let numHoles = Math.ceil(numZombies/5);
             holes=[];
             letters = [];
+            for (let i = 0; i < numHoles; i++) {
+                let h = new Hole;
+                holes.push(h);
+                letters.push(h);
+            }
             for (let i = 0; i < numZombies; i++) { 
                 addLetter(); 
             }
