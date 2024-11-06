@@ -112,6 +112,7 @@
         const ctx = canvas.getContext('2d'); 
         const statusMessage = document.getElementById("statusMessage");
         let letters = []; 
+        let holes = [];
         let zombies = [];
         let animationId; // Zoom and pan variables 
         let scale = 1; 
@@ -277,6 +278,20 @@
             letters.forEach(letter => {letter.chase(prevX, prevY);});
             updateFrame();
             }
+        function newGame() {
+            let numZombies = random(5,10);
+            let numHoles = Math.ceiling(numZombies/5);
+            holes=[];
+            letters = [];
+            for (let i = 0; i < 5; i++) { 
+                addLetter(); 
+            }
+            person = new Person;
+            letters.push(person);
+            animate(); 
+            //
+            statusMessage.innerHTML = "test";
+        }
         
         // Zoom control with mouse wheel 
         canvas.addEventListener('wheel', (e) => 
@@ -317,14 +332,7 @@
         function updateZoomLevel() { document.getElementById('zoomLevel').textContent = `${Math.round(scale * 100)}%`; } 
         function resetZoom() { scale = 1; offsetX = 0; offsetY = 0; zoomSlider.value = 1; updateZoomLevel(); animate(); } 
         document.getElementById('animationSelect').addEventListener('change', animate); // Add initial letters 
-        for (let i = 0; i < 5; i++) { 
-            addLetter(); 
-        }
-        person = new Person;
-        letters.push(person);
-        animate(); 
-        //
-        statusMessage.innerHTML = "test";
+        newGame();
     </script>
 </body>
 
