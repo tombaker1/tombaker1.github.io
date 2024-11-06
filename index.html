@@ -201,7 +201,9 @@
                 //statusMessage.innerHTML += "<br> " + sx + " " + sy;
                 //statusMessage.innerHTML = "chase " + ${dx} + " " + ${dy};
                 let found = 0;
-                
+                if (zombies.length == 0) {
+                    found = 1;
+                }
                 zombies.forEach(z => {
                     
                     
