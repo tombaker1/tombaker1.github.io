@@ -312,11 +312,13 @@
             let prevY = person.y;
             person.move(x,y);
             zombies = [];
+            /*
             for (let letter of letters) {
                 //if (!done) {
                     letter.chase(prevX, prevY);
                 //}
             }
+            */
             updateFrame();
             }
         function gameOver(success) {
