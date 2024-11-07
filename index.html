@@ -227,7 +227,8 @@
                 //if (zombies.length == 0) {
                     //found = 1;
                 //}
-                zombies.forEach(z => {
+                for (z of zombies) {
+                //zombies.forEach(z => {
                     
                     
                     if ((z.x == newX)&&(z.y == newY)) {
@@ -248,7 +249,7 @@
                         }
                      */
                         //statusMessage.innerHTML += "<br> " + z.x + " " + z.y + " " + this.x + " " + this.y + " found " + found;
-                    });
+                    } //);
 
                 //if (found == 0) {
                     this.move(sx,sy);
