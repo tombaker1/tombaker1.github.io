@@ -145,9 +145,10 @@
                 ctx.textBaseline = 'middle'; 
                 ctx.fillText(this.letter, 0, 0); 
                 ctx.restore(); 
-                //statusMessage.innerHTML += "<br>draw " + this.letter + " " + this.x + " " + this.y + " " + px + " " + py;
+                statusMessage.innerHTML += "<br>draw " + this.letter + " " + this.x + " " + this.y + " " + px + " " + py;
             } 
             update() { 
+                /*
                 const animationType = document.getElementById('animationSelect').value; 
                 switch (animationType) { 
                     case 'rotate': this.rotation += 0.02; break; 
@@ -157,6 +158,7 @@
                         } break; 
                     case 'fade': this.opacity = 0.5 + Math.sin(Date.now() / 1000) * 0.5; break; 
                 } 
+*/
             } 
             move(x,y) {
                 this.x += x;
