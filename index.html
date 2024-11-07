@@ -230,6 +230,7 @@
                 //}
                 if (newX == person.x && newY == person.y) {
                     gameOver(0);
+                    return;
                 }
                 for (const z of zombies) {
 
@@ -241,8 +242,8 @@
                     
                     if ((z.x == newX)&&(z.y == newY)) {
                         found = 1;
-                        //sx = 0;
-                        //sy = 0;
+                        sx = 0;
+                        sy = 0;
                 
                     }
                       
@@ -291,20 +292,20 @@
 
             }
         function move(x,y) {
-            /*
+            
             if (done) {
                 return;
             }
-            */
+            
             let prevX = person.x;
             let prevY = person.y;
             person.move(x,y);
             zombies = [];
             
             for (let letter of letters) {
-                //if (!done) {
+                if (!done) {
                     letter.chase(prevX, prevY);
-                //}
+                }
             }
             
             updateFrame();
