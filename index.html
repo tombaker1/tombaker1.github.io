@@ -58,8 +58,7 @@
     <div id="controls"> 
         <button onclick="newGame()">New Game</button> 
         <!--
-            <button onclick="clearCanvas()">Clear
-            Canvas</button> <select id="fontSelect" onchange="updateFont()">
+            <button onclick="clearCanvas()">Clear Canvas</button> <select id="fontSelect" onchange="updateFont()">
             <option value="Arial">Arial</option>
             <option value="Times New Roman">Times New Roman</option>
             <option value="Courier New">Courier New</option>
@@ -237,8 +236,8 @@
                 //if (zombies.length == 0) {
                     //found = 1;
                 //}
-                if ((z.letter == 'Y') ||
-                        (z.letter == 'O') ||
+                if ((this.letter == 'Y') ||
+                        (this.letter == 'O') ||
                         this.dead) {
                             return;
                     }
