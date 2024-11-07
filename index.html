@@ -280,9 +280,10 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height); 
         } 
         function updateFont() { 
-            animate(); 
+            //animate(); 
         } 
         function animate() { 
+            /*
             if (animationId) { 
                 cancelAnimationFrame(animationId); 
             } 
@@ -291,6 +292,7 @@
             if (letters.length > 0 && document.getElementById('animationSelect').value !== 'none') { 
                 animationId = requestAnimationFrame(animate); 
             } 
+*/
         } 
         function updateFrame() {
             ctx.clearRect(0, 0, canvas.width, canvas.height); 
@@ -350,7 +352,7 @@
             }
             person = new Person;
             letters.push(person);
-            animate(); 
+            //animate(); 
             //
             //statusMessage.innerHTML = "<br>New Game! ";
         }
