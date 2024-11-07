@@ -293,6 +293,7 @@
                 animationId = requestAnimationFrame(animate); 
             } 
 */
+            letters.forEach(letter => { letter.update(); letter.draw(); }); 
         } 
         function updateFrame() {
             ctx.clearRect(0, 0, canvas.width, canvas.height); 
@@ -352,13 +353,12 @@
             }
             person = new Person;
             letters.push(person);
-            //animate(); 
+            animate(); 
             //
             //statusMessage.innerHTML = "<br>New Game! ";
         }
         
         // Zoom control with mouse wheel 
-/*
         canvas.addEventListener('wheel', (e) => 
         { 
             e.preventDefault(); 
@@ -391,7 +391,9 @@
           } 
         }); 
         canvas.addEventListener('mouseup', () => { isDragging = false; }); 
-        canvas.addEventListener('mouseleave', () => { isDragging = false; }); // Zoom slider control 
+        canvas.addEventListener('mouseleave', () => { isDragging = false; });
+        /*
+        // Zoom slider control 
         const zoomSlider = document.getElementById('zoomSlider'); 
         zoomSlider.addEventListener('input', () => { scale = parseFloat(zoomSlider.value); updateZoomLevel(); animate(); }); 
         function updateZoomLevel() { document.getElementById('zoomLevel').textContent = `${Math.round(scale * 100)}%`; } 
