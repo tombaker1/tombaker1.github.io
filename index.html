@@ -324,13 +324,20 @@
             let prevY = person.y;
             person.move(x,y);
             zombies = [];
+            liveZombies = 0;
             
             for (let letter of letters) {
                 if (!done) {
                     letter.chase(prevX, prevY);
+                    if ((letter.letter == 'Z') &&
+                        !letter.dead)) {
+                        liveZombies++;
+                    }
                 }
             }
-            
+            if (!liveZombies) {
+                gameOver(1);
+            }
             updateFrame();
             }
         function gameOver(success) {
