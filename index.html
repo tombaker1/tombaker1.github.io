@@ -61,7 +61,7 @@
            
 
     </div>
-    <div class="canvas-container"> <canvas id="letterCanvas" width="400" height="320"></canvas> </div>
+    <div class="canvas-container"> <canvas id="letterCanvas" width="400" height="400"></canvas> </div>
     <div>
         <!--
          <button>up</button>
@@ -114,7 +114,7 @@
                 this.letter = 'Z'; //ABCDEFGHIJKLMNOPQRSTUVWXYZ'[Math.floor(Math.random() * 26)]; 
                 this.x = random(0, canvas.width/20); //30, canvas.width - 30); 
                 this.y = random(0, canvas.height/20); //30, canvas.height - 30); 
-                this.fontSize = 40; //random(20, 40); 
+                this.fontSize = 20; //random(20, 40); 
                 this.hue = 0; //random(0, 360); 
                 this.lightness = 50;
                 this.opacity = 1; 
@@ -139,7 +139,7 @@
                 //if (animationType === 'rotate') { 
                     //ctx.rotate(this.rotation); 
                 //} 
-                ctx.font = `${this.fontSize}px Courier}`; 
+                ctx.font = `${this.fontSize}px monospace}`; 
                 ctx.fillStyle = `hsla(${this.hue}, 70%, ${this.lightness}%, ${this.opacity})`; 
                 ctx.textAlign = 'center'; 
                 ctx.textBaseline = 'middle'; 
