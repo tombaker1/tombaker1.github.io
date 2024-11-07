@@ -303,17 +303,19 @@
 
             }
         function move(x,y) {
+            /*
             if (done) {
                 return;
             }
+            */
             let prevX = person.x;
             let prevY = person.y;
             person.move(x,y);
             zombies = [];
             for (let letter of letters) {
-                if (!done) {
+                //if (!done) {
                     letter.chase(prevX, prevY);
-                }
+                //}
             }
             updateFrame();
             }
@@ -346,7 +348,7 @@
             letters.push(person);
             animate(); 
             //
-            statusMessage.innerHTML = "New Game! " + numZombies + " " + numHoles;
+            statusMessage.innerHTML = "New Game! ";
         }
         
         // Zoom control with mouse wheel 
