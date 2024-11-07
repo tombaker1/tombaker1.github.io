@@ -115,6 +115,7 @@
         let letters = []; 
         let holes = [];
         let zombies = [];
+        let done = 0;
         let animationId; // Zoom and pan variables 
         let scale = 1; 
         let offsetX = 0; 
@@ -298,6 +299,9 @@
 
             }
         function move(x,y) {
+            if (done) {
+                return;
+            }
             let prevX = person.x;
             let prevY = person.y;
             person.move(x,y);
@@ -305,6 +309,11 @@
             letters.forEach(letter => {letter.chase(prevX, prevY);});
             updateFrame();
             }
+        function gameOver(success) {
+            done = 1;
+            m = (success == 1) ? "You won!" : "Better luck next time";
+            statusMessage.innerHTML = m;
+        }
         function newGame() {
             let numZombies = random(5,10);
             let numHoles = Math.ceil(numZombies/5);
