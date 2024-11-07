@@ -130,16 +130,16 @@
                     return;
                 }
                 ctx.save(); 
-                const animationType = document.getElementById('animationSelect').value; // Apply zoom and pan transformation 
+                //const animationType = document.getElementById('animationSelect').value; // Apply zoom and pan transformation 
                 ctx.translate(offsetX, offsetY); 
                 ctx.scale(scale, scale); 
                 let px = (this.x * 20) + 10;
                 let py = (this.y * 20) + 10;
                 ctx.translate(px,py); 
-                if (animationType === 'rotate') { 
-                    ctx.rotate(this.rotation); 
-                } 
-                ctx.font = `${this.fontSize}px ${document.getElementById('fontSelect').value}`; 
+                //if (animationType === 'rotate') { 
+                    //ctx.rotate(this.rotation); 
+                //} 
+                //ctx.font = `${this.fontSize}px ${document.getElementById('fontSelect').value}`; 
                 ctx.fillStyle = `hsla(${this.hue}, 70%, ${this.lightness}%, ${this.opacity})`; 
                 ctx.textAlign = 'center'; 
                 ctx.textBaseline = 'middle'; 
