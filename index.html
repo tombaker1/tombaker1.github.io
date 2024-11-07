@@ -319,12 +319,18 @@
         function gameOver(success) {
             done = 1;
             person.dead = 1;
-            m = (success == 1) ? "You won!" : "Better luck next time";
+            if (success == 1) {
+                m = "You won!";
+            }
+            else {
+                m = "Better luck next time";
+            }
             statusMessage.innerHTML = m;
         }
         function newGame() {
             let numZombies = random(5,10);
             let numHoles = Math.ceil(numZombies/5);
+            done = 0;
             holes=[];
             letters = [];
             for (let i = 0; i < numHoles; i++) {
