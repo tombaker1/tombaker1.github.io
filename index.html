@@ -228,6 +228,9 @@
                 //if (zombies.length == 0) {
                     //found = 1;
                 //}
+                if (newX == person.x && newY == person.y) {
+                    gameOver(0);
+                }
                 for (z of zombies) {
                 //zombies.forEach(z => {
                     if (z.letter == 'Y' ||
@@ -306,11 +309,16 @@
             let prevY = person.y;
             person.move(x,y);
             zombies = [];
-            letters.forEach(letter => {letter.chase(prevX, prevY);});
+            for (let letter of letters) {
+                if (!done) {
+                    letter.chase(prevX, prevY);
+                }
+            }
             updateFrame();
             }
         function gameOver(success) {
             done = 1;
+            person.dead = 1;
             m = (success == 1) ? "You won!" : "Better luck next time";
             statusMessage.innerHTML = m;
         }
