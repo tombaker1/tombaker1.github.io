@@ -232,7 +232,6 @@
                     //gameOver(0);
                 //}
                 for (z of zombies) {
-                //zombies.forEach(z => {
 /*
                     if ((z.letter == 'Y') ||
                         (z.letter == 'O')) {
@@ -242,27 +241,16 @@
                     
                     if ((z.x == newX)&&(z.y == newY)) {
                         found = 1;
-                        sx = 0;
-                        sy = 0;
-                        //break;
-                        //statusMessage.innerHTML += " found";
-                        }
-                        /*
-                    else if ((z.x != newX) && (z.y != this.y)){
-                        found = 1;
-                        newY = this.y;
+                        //sx = 0;
+                        //sy = 0;
+                
                     }
-                    else if ((z.x != this.x) && (z.y != newY)) {
-                        found = 1;
-                        newX = this.x;
-                        }
-                     */
-                        //statusMessage.innerHTML += "<br> " + z.x + " " + z.y + " " + this.x + " " + this.y + " found " + found;
-                    } //);
+                      
+                        statusMessage.innerHTML += "<br> " + z.x + " " + z.y + " " + this.x + " " + this.y + " found " + found;
+                    }
 
-                //if (found == 0) {
-                    this.move(sx,sy);
-                //}
+                
+                this.move(sx,sy);
                 zombies.push(this);
                 
             }
@@ -312,13 +300,13 @@
             let prevY = person.y;
             person.move(x,y);
             zombies = [];
-            /*
+            
             for (let letter of letters) {
                 //if (!done) {
                     letter.chase(prevX, prevY);
                 //}
             }
-            */
+            
             updateFrame();
             }
         function gameOver(success) {
