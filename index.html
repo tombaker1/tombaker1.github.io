@@ -115,6 +115,7 @@
         let letters = []; 
         let holes = [];
         let zombies = [];
+        let id = 0;
         let done = 0;
         let animationId; // Zoom and pan variables 
         let scale = 1; 
@@ -136,6 +137,8 @@
                 this.yVelocity = random(-2, 2); 
                 this.originalY = this.y;
                 this.dead = 0;
+                this.id = id;
+                id++;
             } 
             draw() {
                 if (this.dead) {
@@ -173,7 +176,7 @@
             move(x,y) {
                 this.x += x;
                 this.y += y;
-                statusMessage.innerHTML += `<br>move ${this.letter} x= ${this.x},y= ${this.y}, ${x}, ${y}`;
+                statusMessage.innerHTML += `<br>move: id = ${this.id} ${this.letter} x= ${this.x},y= ${this.y}, ${x}, ${y}`;
                 }
             chase(x,y) {}
         } 
@@ -189,7 +192,7 @@
         class Hole extends Letter {
             constructor() {
                 super();
-                this.letter='0';
+                this.letter='O';
                 this.hue = 240;
                 this.lightness = 50;
                 this.x = random(0, canvas.width/20-2);
@@ -239,6 +242,7 @@
                     if ((h.x == newX) && (h.y == newY) && !h.dead) {
                         this.dead = 1;
                         h.fill();
+                        statusMessage.innerHTML += "<br> zombie dies " + this.id;
                         return;
                     }
                 }
