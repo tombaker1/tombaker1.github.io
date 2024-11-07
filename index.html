@@ -173,7 +173,7 @@
             move(x,y) {
                 this.x += x;
                 this.y += y;
-                statusMessage.innerHTML += `<br>   move ${this.letter} x= ${this.x},y= ${this.y}, ${x}, ${y}`;
+                statusMessage.innerHTML += `<br>move ${this.letter} x= ${this.x},y= ${this.y}, ${x}, ${y}`;
                 }
             chase(x,y) {}
         } 
@@ -201,6 +201,8 @@
                     if (this.space <= 0) {
                         this.dead = 1;
                     }
+                    statusMessage.innerHTML += "<br>hole " + this.x + " " + this.y + " " + this.space + " " + this.dead;
+                    
                 }
             }
         class Zombie extends Letter {
@@ -255,7 +257,7 @@
                 
                     }
                       
-                        statusMessage.innerHTML += "<br> " + z.x + " " + z.y + " " + this.x + " " + this.y + " found " + found;
+                        //statusMessage.innerHTML += "<br> " + z.x + " " + z.y + " " + this.x + " " + this.y + " found " + found;
                     }
 
                 
