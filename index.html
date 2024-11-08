@@ -213,8 +213,6 @@
                 //statusMessage.innerHTML += "<br>chase " + dx + " " + dy + " " + this.x  + " " + this.y;
                 let sx = Math.sign(dx);
                 let sy = Math.sign(dy);
-                let newX = this.x + sx;
-                let newY = this.y + sy;
                 //statusMessage.innerHTML += "<br> " + sx + " " + sy;
                 //statusMessage.innerHTML = "chase " + ${dx} + " " + ${dy};
                 let found = 0;
@@ -233,6 +231,9 @@
                 else {
                     sx = 0;
                 }
+                let newX = this.x + sx;
+                let newY = this.y + sy;
+
                 if (newX == person.x && newY == person.y) {
                     gameOver(0);
                     return;
