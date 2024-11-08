@@ -286,6 +286,7 @@
                     (prevY == letter.y)){
                         statusMessage.innerHTML += "<br> " + letter.id + " " + prevX + " " + prevY +" " + letter.x + " " + letter.y;
                         gameOver(0);
+                        updateFrame();
                         return;
                     }
                     letter.chase(prevX, prevY);
