@@ -284,6 +284,7 @@
                     if ((letter.letter != 'P') &&
                     (prevX == letter.x) &&
                     (prevY == letter.y)){
+                        statusMessage.innerHTML += "<br> " + letter.id + " " + prevX + " " + prevY +" " + letter.x + " " + letter.y;
                         gameOver(0);
                     }
                     letter.chase(prevX, prevY);
