@@ -227,7 +227,12 @@
                         this.dead) {
                             return;
                     }
-
+                if (sx >= sy) }
+                    sy = 0;
+                }
+                else {
+                    sx = 0;
+                }
                 if (newX == person.x && newY == person.y) {
                     gameOver(0);
                     return;
