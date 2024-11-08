@@ -281,6 +281,11 @@
             
             for (let letter of letters) {
                 if (!done) {
+                    if ((letter.letter != 'P') &&
+                    (prevX == letter.x) &&
+                    (prevY == letter.y)){
+                        gameOver(0);
+                    }
                     letter.chase(prevX, prevY);
                     if ((letter.letter == 'Z') &&
                         !letter.dead) {
