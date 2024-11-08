@@ -63,19 +63,11 @@
     </div>
     <div class="canvas-container"> <canvas id="letterCanvas" width="400" height="400"></canvas> </div>
     <div>
-        <!--
-         <button>up</button>
-        <br>
-        <button>left</button>
-        <button>0</button>
-        <button>right</button>
-        <br>
-        <button>down</button>
-        -->
+        
         <br>
             <button onclick="move(-1,-1);" class="arrow-button">&#x2196;</button>
             <button onclick="move(0,-1);" class="arrow-button">&#x2191;</button>
-<button onclick="move(1,-1);" class="arrow-button">&#x2197;</button>
+            <button onclick="move(1,-1);" class="arrow-button">&#x2197;</button>
 <br>
 <button onclick="move(-1,0);" class="arrow-button">&#x2190;</button>
 <button onclick="move(0,0);" class="arrow-button">O</button>
@@ -243,7 +235,7 @@
                     }
                       
                         //statusMessage.innerHTML += "<br> " + z.x + " " + z.y + " " + this.x + " " + this.y + " found " + found;
-                    }
+                }
 
                 
                 this.move(sx,sy);
@@ -281,7 +273,6 @@
                 return;
             }
             
-            
             person.move(x,y);
             let prevX = person.x;
             let prevY = person.y;
@@ -301,7 +292,7 @@
                 gameOver(1);
             }
             updateFrame();
-            }
+        }
         function gameOver(success) {
             done = 1;
             person.dead = 1;
