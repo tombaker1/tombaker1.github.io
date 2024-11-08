@@ -88,12 +88,8 @@
 
     </div>
     <div id="statusMessage">Ready</div>
-    <!--
-    <script type="text/javascript" src="app.js"></script>
-    -->
+    
     <script> 
-    //document.getElementById("").textContent = "New Text";
-
         const canvas = document.getElementById('letterCanvas'); 
         const ctx = canvas.getContext('2d'); 
         const statusMessage = document.getElementById("statusMessage");
@@ -136,9 +132,7 @@
                 let px = (this.x * 20) + 10;
                 let py = (this.y * 20) + 10;
                 ctx.translate(px,py); 
-                //if (animationType === 'rotate') { 
-                    //ctx.rotate(this.rotation); 
-                //} 
+                
                 ctx.font = `${this.fontSize}px Courier New`; 
                 ctx.fillStyle = `hsla(${this.hue}, 70%, ${this.lightness}%, ${this.opacity})`; 
                 ctx.textAlign = 'center'; 
@@ -148,17 +142,7 @@
                 //statusMessage.innerHTML += "<br>draw " + this.letter + " " + this.x + " " + this.y + " " + px + " " + py;
             } 
             update() { 
-                /*
-                const animationType = document.getElementById('animationSelect').value; 
-                switch (animationType) { 
-                    case 'rotate': this.rotation += 0.02; break; 
-                    case 'bounce': this.y += this.yVelocity; 
-                        if (Math.abs(this.y - this.originalY) > 20) { 
-                            this.yVelocity *= -1; 
-                        } break; 
-                    case 'fade': this.opacity = 0.5 + Math.sin(Date.now() / 1000) * 0.5; break; 
-                } 
-*/
+                
             } 
             move(x,y) {
                 this.x += x;
@@ -202,8 +186,7 @@
                 this.lightness = 50;
                 this.x = random(0, canvas.width/20-2);
                 this.y = random(0, canvas.height/20-2);
-                //this.x = canvas.width/2;
-                //this.y = canvas.height/2;
+                
                 }
                 
             chase(x,y) {
@@ -216,9 +199,7 @@
                 //statusMessage.innerHTML += "<br> " + sx + " " + sy;
                 //statusMessage.innerHTML = "chase " + ${dx} + " " + ${dy};
                 let found = 0;
-                //if (zombies.length == 0) {
-                    //found = 1;
-                //}
+                
 
                 if ((this.letter == 'Y') ||
                         (this.letter == 'O') ||
@@ -287,21 +268,8 @@
             letters = []; 
             ctx.clearRect(0, 0, canvas.width, canvas.height); 
         } 
-        function updateFont() { 
-            //animate(); 
-        } 
-        function animate() { 
-            /*
-            if (animationId) { 
-                cancelAnimationFrame(animationId); 
-            } 
-            ctx.clearRect(0, 0, canvas.width, canvas.height); 
-            letters.forEach(letter => { letter.update(); letter.draw(); }); 
-            if (letters.length > 0 && document.getElementById('animationSelect').value !== 'none') { 
-                animationId = requestAnimationFrame(animate); 
-            } 
-*/
-        } 
+        
+        
         function updateFrame() {
             ctx.clearRect(0, 0, canvas.width, canvas.height); 
             letters.forEach(letter => { letter.update(); letter.draw(); }); 
@@ -400,14 +368,7 @@
         }); 
         canvas.addEventListener('mouseup', () => { isDragging = false; }); 
         canvas.addEventListener('mouseleave', () => { isDragging = false; });
-        /*
-        // Zoom slider control 
-        const zoomSlider = document.getElementById('zoomSlider'); 
-        zoomSlider.addEventListener('input', () => { scale = parseFloat(zoomSlider.value); updateZoomLevel(); animate(); }); 
-        function updateZoomLevel() { document.getElementById('zoomLevel').textContent = `${Math.round(scale * 100)}%`; } 
-        function resetZoom() { scale = 1; offsetX = 0; offsetY = 0; zoomSlider.value = 1; updateZoomLevel(); animate(); } 
-        document.getElementById('animationSelect').addEventListener('change', animate); // Add initial letters 
-*/
+        
         newGame();
     </script>
 </body>
