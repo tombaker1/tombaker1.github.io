@@ -141,8 +141,14 @@
             move(x,y) {
                 this.x += x;
                 this.y += y;
-                //statusMessage.innerHTML += `<br>move: id = ${this.id} ${this.letter} x= ${this.x},y= ${this.y}, ${x}, ${y}`;
+                if (this.x > maxX) {
+                    this.x = maxX;
                 }
+                if (this.y > maxY) {
+                    this. y = maxY;
+                }
+                //statusMessage.innerHTML += `<br>move: id = ${this.id} ${this.letter} x= ${this.x},y= ${this.y}, ${x}, ${y}`;
+            }
             chase(x,y) {}
         } 
         class Person extends Letter {
