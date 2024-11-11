@@ -349,7 +349,12 @@
             letters.push(person);
             updateFrame(); 
             //
-            statusMessage.innerHTML = "New Game! ";
+            statusMessage.innerHTML = "New Game! " +
+                                        "<br>Y - you" +
+                                        "<br>Z - zombies" +
+                                        "<br>O - holes" +
+                                        "<br>Try to get the zombies to fall in the holes before they get you!" +
+                                        "<br>A hole can only hold 5 zombies.";
         }
         
         // Zoom control with mouse wheel 
