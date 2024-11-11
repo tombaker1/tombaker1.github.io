@@ -221,7 +221,7 @@
                 let newY = this.y + sy;
 
                 if (newX == person.x && newY == person.y) {
-                    statusMessage.innerHTML += "<br> " + x + " " + y + " " + this.x + " " + this.y + " " + newX + " " + newY;
+                    statusMessage.innerHTML += "<br> person: " + x + " " + y + " zombie: " + this.x + " " + this.y + " move to: " + newX + " " + newY;
                     updateFrame();
                     gameOver(0);
                     return;
