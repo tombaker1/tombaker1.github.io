@@ -221,7 +221,7 @@
                 let newY = this.y + sy;
 
                 if (newX == person.x && newY == person.y) {
-                    statusMessage.innerHTML += "<br> person: " + x + " " + y + " zombie: " + this.x + " " + this.y + " move to: " + newX + " " + newY;
+                    //statusMessage.innerHTML += "<br> person: " + x + " " + y + " zombie: " + this.x + " " + this.y + " move to: " + newX + " " + newY;
                     this.move(sx,sy);
                     updateFrame();
                     gameOver(0);
@@ -302,7 +302,7 @@
                     if ((letter.letter != 'Y') &&
                     (newX == letter.x) &&
                     (newY == letter.y)){
-                        statusMessage.innerHTML += "<br> " + letter.id + " " + letter.letter + " " + prevX + " " + prevY + " " + newX + " " + newY +" " + letter.x + " " + letter.y;
+                        //statusMessage.innerHTML += "<br> " + letter.id + " " + letter.letter + " " + prevX + " " + prevY + " " + newX + " " + newY +" " + letter.x + " " + letter.y;
                         gameOver(0);
                         updateFrame();
                         return;
@@ -328,7 +328,7 @@
             else {
                 m = "Better luck next time";
             }
-            //statusMessage.innerHTML = m;
+            statusMessage.innerHTML = m;
         }
         function newGame() {
             let numZombies = random(5,10);
