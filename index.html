@@ -221,7 +221,8 @@
                 let newY = this.y + sy;
 
                 if (newX == person.x && newY == person.y) {
-                    statusMessage.innerHTML += "<br> " + z.x + " " + z.y + " " + this.x + " " + this.y + " found " + found;
+                    statusMessage.innerHTML += "<br> " + x + " " + y + " " + this.x + " " + this.y + " " + newX + " " + newY;
+                    updateFrame();
                     gameOver(0);
                     return;
                 }
@@ -287,23 +288,25 @@
                 return;
             }
             
-            person.move(x,y);
             let prevX = person.x;
             let prevY = person.y;
+            person.move(x,y);
+            let newX = person.x;
+            let newY = person.y;
             zombies = [];
             let liveZombies = 0;
             
             for (let letter of letters) {
                 if (!done) {
                     if ((letter.letter != 'Y') &&
-                    (prevX == letter.x) &&
-                    (prevY == letter.y)){
-                        statusMessage.innerHTML += "<br> " + letter.id + " " + letter.letter + " " + prevX + " " + prevY +" " + letter.x + " " + letter.y;
+                    (newX == letter.x) &&
+                    (newY == letter.y)){
+                        statusMessage.innerHTML += "<br> " + letter.id + " " + letter.letter + " " + prevX + " " + prevY + " " + newX + " " + newY +" " + letter.x + " " + letter.y;
                         gameOver(0);
                         updateFrame();
                         return;
                     }
-                    letter.chase(prevX, prevY);
+                    letter.chase(newX, newY);
                     if ((letter.letter == 'Z') &&
                         !letter.dead) {
                         liveZombies++;
@@ -329,6 +332,7 @@
         function newGame() {
             let numZombies = random(5,10);
             let numHoles = Math.ceil(numZombies/5);
+            id = 0;
             done = 0;
             holes=[];
             letters = [];
