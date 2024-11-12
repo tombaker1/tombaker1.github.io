@@ -152,7 +152,7 @@
                 if (this.y > maxY) {
                     this. y = maxY;
                 }
-                //statusMessage.innerHTML += `<br>move: id = ${this.id} ${this.letter} x= ${this.x},y= ${this.y}, ${x}, ${y}`;
+                debugOut(`<br>move: id = ${this.id} ${this.letter} x= ${this.x},y= ${this.y}, ${x}, ${y}`);
             }
             chase(x,y) {}
         } 
@@ -223,7 +223,7 @@
                 let newY = this.y + sy;
 
                 if (newX == person.x && newY == person.y) {
-                    //statusMessage.innerHTML += "<br> person: " + x + " " + y + " zombie: " + this.x + " " + this.y + " move to: " + newX + " " + newY;
+                    debugOut("<br> person: " + x + " " + y + " zombie: " + this.x + " " + this.y + " move to: " + newX + " " + newY);
                     this.move(sx,sy);
                     updateFrame();
                     gameOver(0);
@@ -233,7 +233,7 @@
                     if ((h.x == newX) && (h.y == newY) && !h.dead) {
                         this.dead = 1;
                         h.fill();
-                        //statusMessage.innerHTML += "<br> zombie dies " + this.id;
+                        debugOut( "<br> zombie dies " + this.id);
                         return;
                     }
                 }
@@ -252,7 +252,7 @@
                 
                     }
                       
-                        //statusMessage.innerHTML += "<br> " + z.x + " " + z.y + " " + this.x + " " + this.y + " found " + found;
+                        debugOut("<br> " + z.x + " " + z.y + " " + this.x + " " + this.y + " found " + found);
                 }
 
                 
@@ -268,6 +268,9 @@
 
         }
         */
+       function debugOut(m) {
+        console.log(m);
+       }
         function random(min, max) { 
             return Math.floor(Math.random() * (max - min + 1)) + min; 
         } 
@@ -304,7 +307,7 @@
                     if ((letter.letter != 'Y') &&
                     (newX == letter.x) &&
                     (newY == letter.y)){
-                        //statusMessage.innerHTML += "<br> " + letter.id + " " + letter.letter + " " + prevX + " " + prevY + " " + newX + " " + newY +" " + letter.x + " " + letter.y;
+                        debugOut("<br> " + letter.id + " " + letter.letter + " " + prevX + " " + prevY + " " + newX + " " + newY +" " + letter.x + " " + letter.y);
                         gameOver(0);
                         updateFrame();
                         return;
