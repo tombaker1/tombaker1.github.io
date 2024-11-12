@@ -304,13 +304,14 @@
             
             for (let letter of letters) {
                 if (!done) {
-                    if ((letter.letter != 'Y') &&
-                    (newX == letter.x) &&
-                    (newY == letter.y)){
-                        debugOut("<br> " + letter.id + " " + letter.letter + " " + prevX + " " + prevY + " " + newX + " " + newY +" " + letter.x + " " + letter.y);
-                        gameOver(0);
-                        updateFrame();
-                        return;
+                    if (!letter.dead &&
+                        (letter.letter != 'Y') &&
+                        (newX == letter.x) &&
+                        (newY == letter.y)){
+                            debugOut("<br> " + letter.id + " " + letter.letter + " " + prevX + " " + prevY + " " + newX + " " + newY +" " + letter.x + " " + letter.y);
+                            gameOver(0);
+                            updateFrame();
+                            return;
                     }
                     letter.chase(newX, newY);
                     if ((letter.letter == 'Z') &&
