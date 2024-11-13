@@ -68,7 +68,7 @@
             <button onclick="move(1,-1);" class="arrow-button">&#x2197;</button>
             <br>
             <button onclick="move(-1,0);" class="arrow-button">&#x2190;</button>
-            <button onclick="move(0,0);" class="arrow-button">O</button>
+            <button onclick="move(0,0);" class="arrow-button">&#x25A1;</button>
             <button onclick="move(1,0);" class="arrow-button">&#x2192;</button>
             <br>
             <button onclick="move(-1,1);" class="arrow-button">&#x2199;</button>
@@ -176,7 +176,7 @@
                 this.lightness = 50;
                 //this.x = random(1, canvas.width/20-2);
                 //this.y = random(1, canvas.height/20-2);
-                this.newLocation();
+                this.newLocation(1);
                 this.space = 5;
                 }
                 fill() {
@@ -195,7 +195,7 @@
                 this.lightness = 50;
                 //this.x = random(0, canvas.width/20-2);
                 //this.y = random(0, canvas.height/20-2);
-                this.newLocation();
+                this.newLocation(0);
                
                 }
                 
