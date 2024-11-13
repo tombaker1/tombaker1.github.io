@@ -282,13 +282,13 @@
         function addHole() {
             let h = new Hole;
             while (true) {
-                let open = true;
+                let openSpace = true;
                 for (let letter of letters) {
                     if ((letter.x == h.x) && (letter.y == h.y)) {
-                        open = false;
+                        openSpace = false;
                     }
                 }
-                if (open) {
+                if (openSpace) {
                     break;
                 }
                 else {
@@ -300,13 +300,13 @@
         function addZombie() { 
             let z = new Zombie();
             while (true) {
-                let open = true;
+                let openSpace = true;
                 for (let letter of letters) {
                     if ((letter.x == z.x) && (letter.y == z.y)) {
-                        open = false;
+                        openSpace = false;
                     }
                 }
-                if open {
+                if (openSpace) {
                     break;
                 }
                 else {
