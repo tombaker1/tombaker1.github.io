@@ -99,8 +99,6 @@
         class Letter { 
             constructor() { 
                 this.letter = 'Z'; 
-                 this.lastX = this.x;
-                this.lastY = this.y;
                 this.fontSize = 20;  
                 this.hue = 0;  
                 this.lightness = 50;
@@ -134,6 +132,8 @@
             newLocation(pad) {
                 this.x = random(pad, maxX-(pad+1)); 
                 this.y = random(pad, maxY-(pad+1));  
+                this.lastX = this.x;
+                this.lastY = this.y;
             }
             update() { 
                 
@@ -287,15 +287,15 @@
                 let openSpace = true;
                 for (let letter of letters) {
                     if ((letter.x == h.x) && (letter.y == h.y)) {
+                        h.newLocation(1);
                         openSpace = false;
+                        break;
                     }
                 }
                 if (openSpace) {
                     break;
                 }
-                else {
-                    h.newLocation(1);
-                }            }
+             }
             holes.push(h);
             letters.push(h);
         }
@@ -305,16 +305,15 @@
                 let openSpace = true;
                 for (let letter of letters) {
                     if ((letter.x == z.x) && (letter.y == z.y)) {
+                        z.newLocation(0);
                         openSpace = false;
+                        break;
                     }
                 }
                 if (openSpace) {
                     break;
                 }
-                else {
-                    z.newLocation(0);
-                }
-            }
+             }
             letters.push(new Zombie()); 
         } 
         function clearCanvas() { 
